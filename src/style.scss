@@ -1,0 +1,197 @@
+
+@use 'globals' as gl;
+//@use 'custom';
+
+$colors: (
+    Moderate blue: hsl(238, 40%, 52%),
+    Soft Red: hsl(358, 79%, 66%),
+    Light grayish blue: hsl(239, 57%, 85%),
+    Pale red: hsl(357, 100%, 86%),
+    Dark blue: hsl(212, 24%, 26%),
+    Grayish Blue: hsl(211, 10%, 45%),
+    Light gray: hsl(223, 19%, 93%),
+    Very light gray: hsl(228, 33%, 97%),
+    White: hsl(0, 0%, 100%),
+);
+$fallback-colors: (
+    'Absolute Zero' 'Alizarin crimson' 'Azure2' 'Salmon3' 'Russian Violet' RoyalBlue4 MistyRose2 MintCream Snow
+);
+
+@mixin font-color($color, $fallback-color) {
+  color: $fallback-color;
+  color: $color;
+}
+
+@mixin bg-color($color, $fallback-color) {
+  background-color: $fallback-color;
+  background-color: $color;
+}
+
+
+@mixin border-radius($radius...) {
+  border-radius: $radius;
+}
+@mixin margin($args...) {
+  margin: $args;
+}
+@mixin padding($args...) {
+  padding: $args;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+html{
+  @include bg-color(map-get($colors,Light gray),nth($fallback-colors,7));
+}
+body {
+  font: {
+     //default 16 px/1rem.
+     size: 100%; 
+     weight: gl.$font_weight-normal;
+     
+  }
+}
+div{
+  @include padding(15px 0);
+}
+  
+textarea{
+    border:none;
+}
+button{
+    width: 6.25em;
+    height: 3.10em;
+}
+
+
+
+//specificity  0,1,0
+.display-flex{
+    display:flex;
+}
+.flex-column{
+    flex-direction:column;
+}
+.me-1{
+    margin-right:1em;
+}
+.me-3{
+    margin-right:3em;
+}
+.ms-3{
+    margin-left: 3em;
+}
+.mx-3{
+    margin: 0.1875em auto;
+}
+.align-items-center{
+    align-items:center;
+}
+.justify-content-space-between{
+    justify-content: space-between;
+}
+.justify-content-flex-end{
+    justify-content:flex-end;
+}
+.move-right{
+  position:relative;
+  margin-left: auto;
+  margin-right:0;
+}
+.move-left{
+  position:relative;
+  right:10px;
+}
+.move-50px-right{
+  position:relative;
+  left: 50px;
+}
+.smaller-width{
+  width:gl.$container__form-md;
+}
+.hidden{
+  display:none;
+}
+.show{
+  display:block;
+}
+.temp-bg-lightpink{
+  background-color:lightpink;
+}
+.temp-bg-lightgray{
+   background-color:lightgray;
+}
+.temp-bg-lightblue{
+   background-color:lightblue;
+}
+.temp-bg-lightgreen{
+   background-color:lightgreen;
+}
+.addMargin{
+   max-width:75%;
+   position:relative;
+   margin-left: 22em;
+}
+.w-100{
+   width: 100%;
+}
+
+
+#main{
+  // width:gl.$container__form-xs;
+  @include margin(0 auto); 
+  margin-top: 20px;
+  @include bg-color(map-get($colors,Light gray),nth($fallback-colors,7));
+  
+  dialog{
+    
+    &.smaller-width{
+      @media screen and(min-width: 48em){
+        // width:gl.$container__form-md;
+      }
+      
+    }
+  }
+ 
+  @media screen and(min-width:48em){
+     margin-top: 100px;
+     width: gl.$container__form-xxl;                               //misschien minder.
+     
+     > section{
+          // width:gl.$container__form-l;
+          //@include margin(50px auto);
+          @include bg-color(map-get($colors,Very light gray),nth($fallback-colors,8));
+          div{
+             @include padding(25px 0);
+          }
+     }
+    
+     
+  }
+  
+}
+
+
+#bottom-footer {
+.attribution {
+  font-size: gl.$font_size-8;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+}
+
+//taken from: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  width: 1px;
+}
