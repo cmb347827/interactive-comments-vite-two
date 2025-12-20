@@ -257,8 +257,8 @@ function addButtonsEvents(){
 										"replyingTo": `${comment.user.username}`,
 										"user": {
 											"image": { 
-											"png": "./images/avatars/image-juliusomo.png",
-											"webp": "./images/avatars/image-juliusomo.webp"
+											"png": "public/images/avatars/image-juliusomo.png",
+											"webp": "public/images/avatars/image-juliusomo.webp"
 											},
 											"username": "juliusomo"
 										}
@@ -309,7 +309,7 @@ function addButtonsEvents(){
 }
 
 $(window).on('load',function(){
-	//localStorage.clear();
+	localStorage.clear();
 	loadFromStorage('messages1358szaq1tritujfdcx2');
 	//getData();
 	//createElement 
