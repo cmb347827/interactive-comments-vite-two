@@ -15,10 +15,10 @@ const elementsData={
 	nested: false,
 	displayMessages: document.querySelector('.js-comments'),
 }
-
+//https://raw.githubusercontent.com/cmb347827/interactive-comments-section/refs/heads/main/data.json
 //the next two functions are for fetching the data
 function getJson() {
-    return fetch('https://raw.githubusercontent.com/cmb347827/interactive-comments-section/refs/heads/main/data.json')
+    return fetch('https://raw.githubusercontent.com/cmb347827/interactive-comments-vite-two/refs/heads/main/data.json')
 		.then(response => response.json())
 		.then(response => response)
 		.catch(err => {
