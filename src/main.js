@@ -257,8 +257,8 @@ function addButtonsEvents(){
 										"replyingTo": `${comment.user.username}`,
 										"user": {
 											"image": { 
-											"png": "./public/images/avatars/image-juliusomo.png",
-											"webp": "./public/images/avatars/image-juliusomo.webp"
+											"png": "/images/avatars/image-juliusomo.png",
+											"webp": "/images/avatars/image-juliusomo.webp"
 											},
 											"username": "juliusomo"
 										}
